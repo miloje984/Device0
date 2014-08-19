@@ -228,9 +228,13 @@ int main(void) {
 				{
 					PRINTF("Humidity (ADC value) = 0x%4x\n", humidity);
 
-					float tc=sht11_TemperatureC(temperature);
-					float hc=sht11_Humidity(temperature,humidity);
-					printf("temp:%u.%u\nhumidity:%u.%u\n",(int)tc,((int)(tc*10))%10 , (int)hc,((int)(hc*10))%10);
+					temperature_f = (float*)&temperature;
+					humidity_f = (float*)&humidity;
+
+					calc_sth11(temperature_f, humidity_f);
+
+					PRINTF("  Temperature=%d.%02u C\n", (int)(*temperature_f), ((unsigned int)(*temperature_f*10))%10);
+					PRINTF("  Humidity=%d.%02u %\n", (int)(*humidity_f), ((unsigned int)(*humidity_f*10))%10);
 				}
 				else
 					PRINTF("SHT11 error - could not read humidity!\n");

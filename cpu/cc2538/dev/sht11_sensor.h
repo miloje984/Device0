@@ -102,10 +102,6 @@ float calc_dewpoint(float h,float t);
 
 void gpio_test(void);
 
-float sht11_TemperatureC(int rawdata);
-
-float sht11_Humidity(int temprawdata,int humidityrawdata);
-
 
 
 #endif /* SHT11_H_ */
