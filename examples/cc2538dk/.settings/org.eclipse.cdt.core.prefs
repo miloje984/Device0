@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1972299749/PATH/delimiter=\:
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1972299749/PATH/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1972299749/PATH/value=/bin\:/usr/lib/lightdm/lightdm\:/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/usr/games\:/home/ivanm/arm-2013.05/bin\://home/ivanm/contiki-2.7a/examples/cc2538dk/
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1972299749/PWD/delimiter=\:
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1972299749/PWD/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1972299749/PWD/value=/home/ivanm/contiki-2.7a/examples/cc2538dk/
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1972299749/append=true
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1972299749/appendContributed=true
