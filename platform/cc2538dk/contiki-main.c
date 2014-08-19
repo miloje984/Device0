@@ -132,7 +132,7 @@ int main(void) {
 	unsigned char* checksum;
 	unsigned char status;
 	unsigned char temp_data = 0xff;
-	unsigned char err = 0;
+	/* unsigned char err = 0;  SHT11 disabled */
 
 	nvic_init();
 	sys_ctrl_init();
@@ -215,7 +215,7 @@ int main(void) {
 			watchdog_periodic();
 
 			r = process_run();
-
+/*
 			err = s_measure(&temperature, checksum, TEMP);
 
 			if (err == 0)
@@ -228,20 +228,16 @@ int main(void) {
 				{
 					PRINTF("Humidity (ADC value) = 0x%4x\n", humidity);
 
-					temperature_f = (float*)&temperature;
-					humidity_f = (float*)&humidity;
-
-					calc_sth11(temperature_f, humidity_f);
-
-					PRINTF("  Temperature=%d.%02u C\n", (int)(*temperature_f), ((unsigned int)(*temperature_f*10))%10);
-					PRINTF("  Humidity=%d.%02u %\n", (int)(*humidity_f), ((unsigned int)(*humidity_f*10))%10);
+					float tc=sht11_TemperatureC(temperature);
+					float hc=sht11_Humidity(temperature,humidity);
+					printf("temp:%u.%u\nhumidity:%u.%u\n",(int)tc,((int)(tc*10))%10 , (int)hc,((int)(hc*10))%10);
 				}
 				else
 					PRINTF("SHT11 error - could not read humidity!\n");
 			}
 			else
 				PRINTF("SHT11 error - could not read temperature!\n");
-
+*/
 			/*err = s_write_statusreg(&temp_data);
 			if (err == 0)
 			{

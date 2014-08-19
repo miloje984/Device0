@@ -43,7 +43,7 @@
 #include <stdint.h>
 
 #define FLASH_START_ADDR                0x00200000
-#define BOOTLOADER_BACKDOOR_DISABLE     0xEFFFFFFF
+#define BOOTLOADER_BACKDOOR_DISABLE     0xF3FFFFFF //changed to enable bootlaoder
 #define SYS_CTRL_EMUOVR                 0x400D20B4
 /*---------------------------------------------------------------------------*/
 extern int main(void);

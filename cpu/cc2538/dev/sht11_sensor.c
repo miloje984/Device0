@@ -351,3 +351,47 @@ float calc_dewpoint(float h,float t)
   
   return dew_point;
 }
+
+float sht11_TemperatureC(int rawdata)
+{
+  int _val; // Raw value returned from sensor
+  float _temperature; // Temperature derived from raw value
+
+  // Conversion coefficients from SHT11 datasheet
+  const float D1 = -39.6;
+  const float D2 = 0.01;
+
+  // Fetch raw value
+  _val = rawdata;
+
+  // Convert raw value to degrees Celsius
+  _temperature = (_val * D2) + D1;
+
+  return (_temperature);
+}
+
+float sht11_Humidity(int temprawdata,int humidityrawdata)
+{
+  int _val; // Raw humidity value returned from sensor
+  float _linearHumidity; // Humidity with linear correction applied
+  float _correctedHumidity; // Temperature-corrected humidity
+  float _temperature; // Raw temperature value
+
+  // Conversion coefficients from SHT15 datasheet
+  const float C1 = -4.0; // for 12 Bit
+  const float C2 = 0.0405; // for 12 Bit
+  const float C3 = -0.0000028; // for 12 Bit
+  const float T1 = 0.01; // for 14 Bit @ 5V
+  const float T2 = 0.00008; // for 14 Bit @ 5V
+
+  _val = humidityrawdata;
+   _linearHumidity = C1 + C2 * _val + C3 * _val * _val;
+
+  // Get current temperature for humidity correction
+  _temperature = sht11_TemperatureC(temprawdata);
+
+  // Correct humidity value for current temperature
+  _correctedHumidity = (_temperature - 25.0 ) * (T1 + T2 * _val) + _linearHumidity;
+
+  return (_correctedHumidity);
+}

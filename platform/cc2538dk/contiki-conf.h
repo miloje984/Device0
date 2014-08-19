@@ -105,7 +105,7 @@ typedef uint32_t rtimer_clock_t;
 #define CC2538_RF_CONF_SNIFFER_USB  0 /**< Sniffer out over UART by default */
 #endif
 #ifndef DBG_CONF_USB
-#define DBG_CONF_USB                0 /**< All debugging over UART by default */
+#define DBG_CONF_USB                1 /**< All debugging over UART by default */
 #endif
 
 /* Turn off example-provided putchars */
