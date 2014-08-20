@@ -160,7 +160,7 @@ PROCESS_THREAD(cc2538_demo_process, ev, data)
   while(1) {
     etimer_set(&et, CLOCK_SECOND*10);
 
-    //
+    //ivanm
     // Configure ADC, Internal reference, 512 decimation rate (12bit)
     //
     SOCADCSingleConfigure(SOCADC_12_BIT, SOCADC_REF_INTERNAL);
